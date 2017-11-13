@@ -5,6 +5,7 @@
  */
 
 #include <cs50.h>
+#include <string.h>
 
 #include "helpers.h"
 
@@ -14,27 +15,24 @@
 bool search(int value, int values[], int n)
 {
     // TODO: implement a searching algorithm
-    int value;
     int min = 0;
-    int max = strlen(values);
-    int n;
-
-    while ( min <= max)
+    int max = n - 1;
+    int mid = (min + max) / 2;
+while (values > 0)
+{
+    if (value == values[mid])
     {
-        n = (min + max) / 2;
-        if (n === value)
-        {
-            return true;
-        }
-        else if (n < value)
-        {
-            min = n + 1;
-        }
-        else
-        {
-            max = n - 1;
-        }
+        return true;
     }
+    else if (value < values[mid])
+    {
+        max = mid - 1;
+    }
+    else
+    {
+        min = mid + 1;
+    }
+}
     return false;
 }
 
