@@ -6,6 +6,7 @@
 
 #include <cs50.h>
 #include <string.h>
+#include <stdio.h>
 
 #include "helpers.h"
 
@@ -18,7 +19,11 @@ bool search(int value, int values[], int n)
     int min = 0;
     int max = n - 1;
     int mid = (min + max) / 2;
-while (values > 0)
+    if (n < 0)
+    {
+        return false;
+    }
+while (max >= min)
 {
     if (value == values[mid])
     {
@@ -27,10 +32,12 @@ while (values > 0)
     else if (value < values[mid])
     {
         max = mid - 1;
+        mid = (min + max) / 2;
     }
     else
     {
         min = mid + 1;
+        mid = (min + max) / 2;
     }
 }
     return false;
@@ -41,6 +48,22 @@ while (values > 0)
  */
 void sort(int values[], int n)
 {
-    // TODO: implement a sorting algorithm
+    int counter = n;
+    while (counter > 0)
+    {
+    for (int i = 0; i < n - 1; i++)
+    {
+        int x = 0;
+
+        if (values[i] > values[i + 1])
+        {
+            x = values[i];
+            values[i] = values[i + 1];
+            values[i + 1] = x;
+
+        }
+    }
+        counter--;
+    }
     return;
 }
