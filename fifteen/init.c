@@ -20,4 +20,6 @@ void init(void)
     board [2][1] = 1;
     board [2][2] = 0;
     printf("%i", board[][]);
+
+
 }

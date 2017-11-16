@@ -187,15 +187,18 @@ void draw(void)
     {
         for (int j = 0; j < d; j++)
         {
-            //board[i][j] = counter;
-            //counter--;
-            printf("%2i", board[i][j]);
-
+            if (board[i][j] == 0)
+            {
+                string x = "_";
+                printf("%2s", x);
+            }
+            else
+            {
+                printf("%2i", board[i][j]);
+            }
         }
         printf("\n");
     }
-    // TODO
-
 }
 
 /**
