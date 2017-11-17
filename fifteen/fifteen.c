@@ -189,12 +189,12 @@ void draw(void)
         {
             if (board[i][j] == 0)
             {
-                string x = "_";
-                printf("%2s", x);
+                char x = '_';
+                printf("%2c ", x);
             }
             else
             {
-                printf("%2i", board[i][j]);
+                printf("%2i ", board[i][j]);
             }
         }
         printf("\n");
@@ -207,6 +207,50 @@ void draw(void)
  */
 bool move(int tile)
 {
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            if (board[i][j] == 0)
+            {
+                for (int a = 0; a < d; a++)
+                {
+                    for (int b = 0; b < d; b++)
+                    {
+
+                        if (board[i +1][j] == tile)
+                {
+                    board[i][j] = tile;
+                    board[i + 1][j] = 0;
+                    return true;
+                }
+                if (board[i - 1][j] == tile)
+                {
+                    board[i][j] = tile;
+                    board[i - 1][j] = 0;
+                    return true;
+                }
+                if (board[i][j + 1] == tile)
+                {
+                    board[i][j] = tile;
+                    board[i][j + 1] = 0;
+                    return true;
+                }
+                if (board[i][j - 1] == tile)
+                {
+                    board[i][j] = tile;
+                    board[i][j - 1] = 0;
+                    return true;
+                }
+
+
+
+                    }
+                }
+
+            }
+        }
+    }
     // TODO
     return false;
 }
