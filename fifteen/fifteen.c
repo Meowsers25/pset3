@@ -219,37 +219,33 @@ bool move(int tile)
                     {
 
                         if (board[i +1][j] == tile)
-                {
-                    board[i][j] = tile;
-                    board[i + 1][j] = 0;
-                    return true;
-                }
-                if (board[i - 1][j] == tile)
-                {
-                    board[i][j] = tile;
-                    board[i - 1][j] = 0;
-                    return true;
-                }
-                if (board[i][j + 1] == tile)
-                {
-                    board[i][j] = tile;
-                    board[i][j + 1] = 0;
-                    return true;
-                }
-                if (board[i][j - 1] == tile)
-                {
-                    board[i][j] = tile;
-                    board[i][j - 1] = 0;
-                    return true;
-                }
-
-
-
+                            {
+                                board[i][j] = tile;
+                                board[i + 1][j] = 0;
+                                return true;
+                            }
+                            if (board[i - 1][j] == tile)
+                            {
+                                board[i][j] = tile;
+                                board[i - 1][j] = 0;
+                                return true;
+                            }
+                            if (board[i][j + 1] == tile)
+                            {
+                                board[i][j] = tile;
+                                board[i][j + 1] = 0;
+                                return true;
+                            }
+                            if (board[i][j - 1] == tile)
+                            {
+                                board[i][j] = tile;
+                                board[i][j - 1] = 0;
+                                return true;
+                            }
+                        }
                     }
                 }
-
             }
-        }
     }
     // TODO
     return false;
@@ -262,5 +258,19 @@ bool move(int tile)
 bool won(void)
 {
     // TODO
-    return false;
+    int order = 1;
+    for (int i = 0; i < d; i++)
+    {
+        for (int j = 0; j < d; j++)
+        {
+            if (board[i][j] != order)
+            {
+                return false;
+            }
+            order = (order + 1) % (d * d);
+        }
+
+    }
+    return true;
 }
+
