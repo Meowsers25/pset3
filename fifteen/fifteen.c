@@ -258,18 +258,21 @@ bool move(int tile)
 bool won(void)
 {
     // TODO
-    int order = 1;
+    int numOrder = 1;
     for (int i = 0; i < d; i++)
     {
         for (int j = 0; j < d; j++)
         {
-            if (board[i][j] != order)
+            if (numOrder != board[i][j])
             {
                 return false;
             }
-            order = (order + 1) % (d * d);
+            else if (numOrder == (d * d) - 1)
+            {
+                return true;
+            }
+            numOrder++;
         }
-
     }
     return true;
 }
